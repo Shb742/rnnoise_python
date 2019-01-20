@@ -9,7 +9,7 @@ python wrapper for the [rnnoise](https://github.com/xiph/rnnoise) library.
 **It operates on RAW 16-bit (machine endian) mono
 PCM files sampled at 48 kHz.**
 
-**Each frame of data must be in binary, and must be 480 int16s i.e 2 bytes per sample. This translates to 960 bytes per audio frame.**
+**Each frame of data must be in binary, and must be 480 int16s (i.e 2 bytes per sample.) This translates to 960 bytes per audio frame.**
 
 ```
 arecord -v -f S16_LE -c1 -r48000 -t raw | python3 rnn_test.py
