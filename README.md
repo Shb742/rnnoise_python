@@ -3,7 +3,8 @@ python wrapper for the [rnnoise](https://github.com/xiph/rnnoise) library.
 
 # Prerequisites
 * Have [rnnoise](https://github.com/xiph/rnnoise) installed
-* Have python (2/3) installed
+* python (2/3)
+* numpy
 
 # Example usage
 **It operates on RAW 16-bit (machine endian) mono
