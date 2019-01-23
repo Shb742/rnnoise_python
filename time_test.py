@@ -1,13 +1,14 @@
 import time
 import rnnoise
 import random
-a = rnnoise.RNNoise()
 def time_rnnoise(rounds=1000):
+	a = rnnoise.RNNoise()
 	timer = 0.0
 	st = time.time()
 	for i in range(rounds):
 		inp = bytearray([random.randint(0,255) for _ in range(960)])
 	timer = (time.time() - st)
+	print(timer)
 	st = time.time()
 	for i in range(rounds):
 		inp = bytearray([random.randint(0,255) for _ in range(960)])
@@ -16,5 +17,6 @@ def time_rnnoise(rounds=1000):
 	print("time taken for one frame - " + str(time_taken_per_frame ))
 	print("time in a frame - " +str(480.0/48000.0)) 
 	print(str((480.0/48000.0)/time_taken_per_frame )+"X faster than real")
+	a.destroy()
 
 time_rnnoise()
