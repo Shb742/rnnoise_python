@@ -3,7 +3,7 @@ from ctypes import util
 
 lib_path = util.find_library("rnnoise")
 if (not("/" in lib_path)):
-	lib_path = os.popen('ldconfig -p | grep '+lib_path).read().split('\n')[0].strip().split(" ")[-1]
+	lib_path = (os.popen('ldconfig -p | grep '+lib_path).read().split('\n')[0].strip().split(" ")[-1] or ("/usr/local/lib/"+lib_path))
 	
 lib = ctypes.cdll.LoadLibrary(lib_path)
 lib.rnnoise_process_frame.argtypes = [ctypes.c_void_p,ctypes.POINTER(ctypes.c_float),ctypes.POINTER(ctypes.c_float)]
