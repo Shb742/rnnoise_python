@@ -1,3 +1,4 @@
+#Author Shoaib Omar
 import time
 import rnnoise
 import numpy as np
@@ -18,5 +19,4 @@ def time_rnnoise(rounds=1000):
 	print("time in a frame - " +str(480.0/48000.0)) 
 	print(str((480.0/48000.0)/time_taken_per_frame )+"X faster than real")
 	a.destroy()
-
 time_rnnoise()
