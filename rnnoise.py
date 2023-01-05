@@ -9,12 +9,13 @@ if (not("/" in lib_path)):
 lib = ctypes.cdll.LoadLibrary(lib_path)
 lib.rnnoise_process_frame.argtypes = [ctypes.c_void_p,ctypes.POINTER(ctypes.c_float),ctypes.POINTER(ctypes.c_float)]
 lib.rnnoise_process_frame.restype = ctypes.c_float
+lib.rnnoise_create.argtypes = [ctypes.c_void_p]
 lib.rnnoise_create.restype = ctypes.c_void_p
 lib.rnnoise_destroy.argtypes = [ctypes.c_void_p]
 
 class RNNoise(object):
 	def __init__(self):
-		self.obj = lib.rnnoise_create()
+		self.obj = lib.rnnoise_create(None)
 	def process_frame(self,inbuf):
 		outbuf = numpy.ndarray((480,), 'h', inbuf).astype(ctypes.c_float)
 		outbuf_ptr = outbuf.ctypes.data_as(ctypes.POINTER(ctypes.c_float))
